@@ -1,132 +1,76 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القتلة - Dead by Daylight العربي</title>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="description" content="دليل عربي للعبة Dead by Daylight - معلومات عن الناجين والقتلة">
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <a href="/index.html" class="logo">Dead by Daylight <span>العربي</span></a>
-            <nav>
-                <ul>
-                    <li><a href="/index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="/survivors.html"><i class="fas fa-users"></i> الناجون</a></li>
-                    <li><a href="/killers.html"><i class="fas fa-skull"></i> القتلة</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+{% extends 'base.html' %}
 
-    <main>
-        <div class="container">
-            
-<section>
-    <h1 class="section-title">القتلة في Dead by Daylight</h1>
-    <p style="text-align: center; margin-bottom: 2rem;">تعرف على جميع القتلة المتاحين في اللعبة وقدراتهم الخاصة</p>
-    
-    <div class="card-grid">
-        
-                <div class="card">
-                    <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/3/35/K06_charSelect_portrait.png" alt="The Huntress" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">The Huntress</h3>
-                        <p class="card-description">قاتل يستخدم الفؤوس لإصابة الضحايا من مسافة بعيدة.</p>
-                        <p><strong>القوة الخاصة:</strong> Hatchets</p>
-                        <div class="card-perks">
-                            <h4>المزايا الخاصة:</h4>
-                            <ul class="perks-list">
-                                <li>Huntress Lullaby</li><li>Territorial Imperative</li><li>Bloodlust</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/7/7e/K01_charSelect_portrait.png" alt="The Wraith" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">The Wraith</h3>
-                        <p class="card-description">قاتل خفي يمكنه التنقل بسرعة دون أن يتم اكتشافه.</p>
-                        <p><strong>القوة الخاصة:</strong> Wraith Cloak</p>
-                        <div class="card-perks">
-                            <h4>المزايا الخاصة:</h4>
-                            <ul class="perks-list">
-                                <li>Shadowborn</li><li>Bloodhound</li><li>Whispers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/c/c0/K03_charSelect_portrait.png" alt="The Nurse" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">The Nurse</h3>
-                        <p class="card-description">قاتلة تستطيع الانتقال عبر الأبعاد.</p>
-                        <p><strong>القوة الخاصة:</strong> Blink</p>
-                        <div class="card-perks">
-                            <h4>المزايا الخاصة:</h4>
-                            <ul class="perks-list">
-                                <li>Stridor</li><li>Thanatophobia</li><li>Dark Devotion</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                    </ul>
-                </div>
+{% block content %}
+<section class="page-header">
+    <h1>الكيلرز</h1>
+    <p>تعرف على جميع الكيلرز في لعبة ديد باي دايلايت، قدراتهم، وتاريخهم</p>
+</section>
+
+<section class="killers-filters">
+    <div class="filter-group">
+        <label for="difficulty-filter">تصفية حسب الصعوبة:</label>
+        <select id="difficulty-filter">
+            <option value="all">الكل</option>
+            <option value="سهل">سهل</option>
+            <option value="متوسط">متوسط</option>
+            <option value="صعب">صعب</option>
+        </select>
+    </div>
+    <div class="filter-group">
+        <label for="search-killer">بحث:</label>
+        <input type="text" id="search-killer" placeholder="ابحث عن كيلر...">
+    </div>
+</section>
+
+<section class="killers-grid">
+    {% for killer in killers %}
+    <div class="killer-card" data-difficulty="{{ killer.difficulty }}">
+        <div class="killer-image">
+            {% if killer.image %}
+            <img src="{{ killer.image }}" alt="{{ killer.name }}">
+            {% else %}
+            <i class="fas fa-skull-crossbones"></i>
+            {% endif %}
+        </div>
+        <div class="killer-info">
+            <h2>{{ killer.name }}</h2>
+            <div class="killer-difficulty">
+                <span class="difficulty-label">الصعوبة:</span>
+                <span class="difficulty-value {{ killer.difficulty }}">{{ killer.difficulty }}</span>
             </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
-
-<section style="margin-top: 3rem;">
-    <h2 class="section-title">استراتيجيات للقتلة</h2>
-    <div style="background-color: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: var(--shadow);">
-        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">كيف تلعب كقاتل بشكل فعال:</h3>
-        <p>كل قاتل لديه قدرات ومزايا فريدة يمكن استخدامها لتحسين فرص اصطياد الناجين. فيما يلي بعض النصائح العامة لجميع القتلة:</p>
-        
-        <div style="margin-top: 1.5rem;">
-            <h4 style="color: var(--primary-color);">مراقبة المولدات</h4>
-            <p>المولدات هي هدف الناجين الرئيسي. راقبها واحرص على منع الناجين من إصلاحها جميعاً.</p>
-        </div>
-        
-        <div style="margin-top: 1.5rem;">
-            <h4 style="color: var(--primary-color);">التحكم في مناطق اللعب</h4>
-            <p>حاول السيطرة على مناطق معينة من الخريطة، خاصة المناطق التي بها مولدات لم يتم إصلاحها.</p>
-        </div>
-        
-        <div style="margin-top: 1.5rem;">
-            <h4 style="color: var(--primary-color);">إدارة الوقت</h4>
-            <p>لا تضيع وقتاً طويلاً في مطاردة ناجٍ واحد. إذا استمرت المطاردة لفترة طويلة، من الأفضل التحول لهدف آخر.</p>
-        </div>
-        
-        <div style="margin-top: 1.5rem;">
-            <h4 style="color: var(--primary-color);">استخدام قدراتك الخاصة</h4>
-            <p>تعلم كيفية استخدام قدرات القاتل الخاص بك بفعالية. كل قاتل لديه نقاط قوة فريدة يمكن استغلالها.</p>
-        </div>
-        
-        <div style="margin-top: 1.5rem;">
-            <h4 style="color: var(--primary-color);">التفكير في استراتيجية الخطاطيف</h4>
-            <p>حدد الخطاطيف القريبة قبل حمل الناجين. وضع الناجين على الخطاطيف في مناطق استراتيجية يمكن أن يسهل عليك المراقبة.</p>
+            <p class="killer-desc">{{ killer.backstory }}</p>
+            <a href="/killers/{{ killer.id }}" class="btn btn-primary">عرض التفاصيل</a>
         </div>
     </div>
+    {% endfor %}
 </section>
 
+<section class="killer-tips">
+    <h2>نصائح عامة للعب ككيلر</h2>
+    <div class="tips-grid">
+        <div class="tip-card">
+            <div class="tip-icon">
+                <i class="fas fa-eye"></i>
+            </div>
+            <h3>راقب المولدات</h3>
+            <p>حافظ على مراقبة المولدات، خاصة تلك التي تم إحراز تقدم فيها.</p>
         </div>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <p>موقع دليل Dead by Daylight العربي &copy; 2023</p>
-            <p>هذا الموقع غير رسمي ولا يرتبط بشكل مباشر مع مطوري اللعبة</p>
+        
+        <div class="tip-card">
+            <div class="tip-icon">
+                <i class="fas fa-shoe-prints"></i>
+            </div>
+            <h3>تتبع الآثار</h3>
+            <p>انتبه إلى آثار الأقدام وقطرات الدم التي قد تكشف مكان السرفايفرز.</p>
         </div>
-    </footer>
-
-    <script src="/static/js/main.js"></script>
-</body>
-</html>
+        
+        <div class="tip-card">
+            <div class="tip-icon">
+                <i class="fas fa-hook"></i>
+            </div>
+            <h3>الإستراتيجية الذكية للهوكس</h3>
+            <p>ضع السرفايفرز على الهوكس القريبة من المولدات النشطة لتسهيل حراستهم.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

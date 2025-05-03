@@ -1,164 +1,97 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة الرئيسية - Dead by Daylight العربي</title>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="description" content="دليل عربي للعبة Dead by Daylight - معلومات عن الناجين والقتلة">
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <a href="/index.html" class="logo">Dead by Daylight <span>العربي</span></a>
-            <nav>
-                <ul>
-                    <li><a href="/index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="/survivors.html"><i class="fas fa-users"></i> الناجون</a></li>
-                    <li><a href="/killers.html"><i class="fas fa-skull"></i> القتلة</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+{% extends "base.html" %}
 
-    <main>
-        <div class="container">
-            
+{% block content %}
 <section class="hero">
     <div class="hero-content">
-        <h1>مرحباً بك في دليل Dead by Daylight العربي</h1>
-        <p>تعرف على جميع الناجين والقتلة في لعبة الرعب الشهيرة</p>
+        <h1>مرحباً بك في عالم دبد</h1>
+        <p>أكبر مصدر للمعلومات العربية عن لعبة ديد باي دايلايت</p>
+        <div class="hero-buttons">
+            <a href="/killers" class="btn btn-primary">الكيلرز</a>
+            <a href="/survivors" class="btn btn-secondary">السرفايفرز</a>
+        </div>
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">عن اللعبة</h2>
-    <div class="about-game">
-        <p>Dead by Daylight هي لعبة رعب بقاء متعددة اللاعبين تم تطويرها بواسطة Behaviour Interactive. في اللعبة، يأخذ لاعب واحد دور القاتل، بينما يأخذ حتى أربعة لاعبين آخرين دور الناجين الذين يحاولون الهروب من القاتل من خلال إصلاح المولدات وفتح بوابات الخروج.</p>
-        <p>يتضمن هذا الدليل معلومات عن جميع الشخصيات المتاحة في اللعبة، سواء كانوا ناجين أو قتلة، بالإضافة إلى قدراتهم المتخصصة والمزايا الفريدة.</p>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">الناجون المميزون</h2>
-    <div class="card-grid">
-        
-                    <div class="card">
-                        <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/a/a8/S01_charSelect_portrait.png" alt="Meg Thomas" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">Meg Thomas</h3>
-                            <p class="card-description">عداءة سريعة وشجاعة، تتميز بقدرتها على الهروب السريع.</p>
-                            <div class="card-perks">
-                                <h4>المزايا الخاصة:</h4>
-                                <ul class="perks-list">
-                                    <li>Self Care</li><li>Sprint Burst</li><li>Adrenaline</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/3/34/S00_charSelect_portrait.png" alt="Dwight Fairfield" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">Dwight Fairfield</h3>
-                            <p class="card-description">قائد مجموعة، يتميز بقدرته على مساعدة الآخرين وإصلاح المولدات.</p>
-                            <div class="card-perks">
-                                <h4>المزايا الخاصة:</h4>
-                                <ul class="perks-list">
-                                    <li>Bond</li><li>Prove Thyself</li><li>Leader</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    </ul>
-                </div>
+<section class="features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-skull"></i>
             </div>
+            <h3>كيلرز</h3>
+            <p>استكشف الكيلرز وقدراتهم الفريدة وكيفية اللعب بهم</p>
+            <a href="/killers" class="feature-link">عرض الكيلرز</a>
         </div>
-        {% endfor %}
-    </div>
-    <div style="text-align: center; margin: 2rem 0;">
-        <a href="/survivors.html" style="display: inline-block; background-color: var(--primary-color); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">عرض جميع الناجين</a>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">القتلة المميزون</h2>
-    <div class="card-grid">
         
-                    <div class="card">
-                        <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/3/35/K06_charSelect_portrait.png" alt="The Huntress" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">The Huntress</h3>
-                            <p class="card-description">قاتل يستخدم الفؤوس لإصابة الضحايا من مسافة بعيدة.</p>
-                            <p><strong>القوة الخاصة:</strong> Hatchets</p>
-                            <div class="card-perks">
-                                <h4>المزايا الخاصة:</h4>
-                                <ul class="perks-list">
-                                    <li>Huntress Lullaby</li><li>Territorial Imperative</li><li>Bloodlust</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <img src="https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/7/7e/K01_charSelect_portrait.png" alt="The Wraith" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">The Wraith</h3>
-                            <p class="card-description">قاتل خفي يمكنه التنقل بسرعة دون أن يتم اكتشافه.</p>
-                            <p><strong>القوة الخاصة:</strong> Wraith Cloak</p>
-                            <div class="card-perks">
-                                <h4>المزايا الخاصة:</h4>
-                                <ul class="perks-list">
-                                    <li>Shadowborn</li><li>Bloodhound</li><li>Whispers</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    </ul>
-                </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-user-group"></i>
             </div>
+            <h3>سرفايفرز</h3>
+            <p>تعرف على السرفايفرز وشخصياتهم وكيفية النجاة معهم</p>
+            <a href="/survivors" class="feature-link">عرض السرفايفرز</a>
         </div>
-        {% endfor %}
-    </div>
-    <div style="text-align: center; margin: 2rem 0;">
-        <a href="/killers.html" style="display: inline-block; background-color: var(--primary-color); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">عرض جميع القتلة</a>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">نصائح للعب</h2>
-    <div style="background-color: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: var(--shadow);">
-        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">نصائح للناجين:</h3>
-        <ul style="padding-right: 1.5rem;">
-            <li>حافظ على الهدوء وتجنب الركض عندما يكون القاتل قريباً.</li>
-            <li>تعاون مع فريقك لإصلاح المولدات بسرعة أكبر.</li>
-            <li>تعلم أماكن الخطاطيف الخشبية والخزائن لاستخدامها في اللحظات الحرجة.</li>
-            <li>استخدم الإشارات للتواصل مع فريقك وتحذيرهم من موقع القاتل.</li>
-        </ul>
         
-        <h3 style="color: var(--primary-color); margin: 1.5rem 0 1rem;">نصائح للقتلة:</h3>
-        <ul style="padding-right: 1.5rem;">
-            <li>راقب المولدات التي تم إصلاحها جزئياً، فمن المرجح أن يعود الناجون إليها.</li>
-            <li>تعلم استخدام قدراتك الخاصة بفعالية لمفاجأة الناجين.</li>
-            <li>حاول منع الناجين من العمل معاً من خلال تشتيتهم.</li>
-            <li>استخدم المزايا التي تتناسب مع أسلوب لعبك وخصائص القاتل الذي تستخدمه.</li>
-        </ul>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h3>بيركس</h3>
+            <p>استكشف البيركس المتاحة للكيلرز والسرفايفرز ومزاياهم</p>
+            <a href="/perks" class="feature-link">عرض البيركس</a>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-chart-simple"></i>
+            </div>
+            <h3>إحصائيات</h3>
+            <p>تعرف على أحدث الإحصائيات ومعدلات استخدام الشخصيات والقدرات</p>
+            <a href="/stats" class="feature-link">عرض الإحصائيات</a>
+        </div>
     </div>
 </section>
 
+<section class="updates">
+    <h2>آخر التحديثات</h2>
+    <div class="updates-grid">
+        <div class="update-card">
+            <div class="update-header">
+                <h3>استراتيجيات لعب ذا نيرس</h3>
+                <span class="update-date">منذ 3 أيام</span>
+            </div>
+            <p>دليل شامل لاستراتيجيات وتكتيكات لعب ذا نيرس للاعبي الكيلر المهتمين بإتقان هذه الشخصية.</p>
+            <a href="/killers/nurse" class="update-link">اقرأ المزيد</a>
         </div>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <p>موقع دليل Dead by Daylight العربي &copy; 2023</p>
-            <p>هذا الموقع غير رسمي ولا يرتبط بشكل مباشر مع مطوري اللعبة</p>
+        
+        <div class="update-card">
+            <div class="update-header">
+                <h3>دليل البقاء على قيد الحياة</h3>
+                <span class="update-date">منذ أسبوع</span>
+            </div>
+            <p>دليل شامل للسرفايفرز المبتدئين لمساعدتهم على الهروب من الكيلرز بنجاح.</p>
+            <a href="#" class="update-link">اقرأ المزيد</a>
         </div>
-    </footer>
+        
+        <div class="update-card">
+            <div class="update-header">
+                <h3>تحديث إحصائيات اللعبة</h3>
+                <span class="update-date">منذ أسبوعين</span>
+            </div>
+            <p>تم تحديث إحصائيات اللعبة لتشمل أحدث البيانات عن معدلات الفوز والبيركس الأكثر استخدامًا.</p>
+            <a href="/stats" class="update-link">اقرأ المزيد</a>
+        </div>
+    </div>
+</section>
 
-    <script src="/static/js/main.js"></script>
-</body>
-</html>
+<section class="newsletter">
+    <div class="newsletter-content">
+        <h2>اشترك في النشرة الإخبارية</h2>
+        <p>احصل على آخر المعلومات والتحديثات عن لعبة ديد باي دايلايت مباشرة في بريدك الإلكتروني.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="بريدك الإلكتروني" required>
+            <button type="submit" class="btn btn-primary">اشتراك</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
